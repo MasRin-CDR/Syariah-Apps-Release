@@ -1066,6 +1066,234 @@ section { position: relative; z-index: 1; }
 .dl-sub { font-size: 0.75rem; opacity: 0.75; font-weight: 400; }
 .dl-main { font-size: 1rem; font-weight: 700; }
 
+.android-status-card {
+  border-color: rgba(245,158,11,0.22);
+}
+
+.status-copy {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.status-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.status-list li {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-list li::before {
+  display: inline-block;
+  width: 18px;
+  margin-right: 4px;
+}
+
+.status-list .done::before { content: '✓'; color: var(--primary); }
+.status-list .pending::before { content: '...'; color: var(--gold); }
+
+.disabled-dl-btn,
+.disabled-dl-btn:hover {
+  justify-content: center;
+  border: 1px dashed rgba(245,158,11,0.35);
+  background: rgba(245,158,11,0.08);
+  color: var(--gold);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sha-meta {
+  grid-template-columns: 1fr;
+  margin-top: 12px;
+}
+
+.sha-value {
+  display: block;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.live-stats {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--text-secondary);
+}
+
+.download-page,
+.admin-page {
+  min-height: 100vh;
+}
+
+.download-shell,
+.admin-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0 72px;
+}
+
+.page-brand {
+  display: inline-flex;
+  margin-bottom: 32px;
+}
+
+.download-hero-card,
+.chart-card,
+.metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.download-hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 40px;
+  margin-bottom: 24px;
+}
+
+.download-hero-card .section-title,
+.download-hero-card .section-desc {
+  text-align: left;
+  max-width: 760px;
+}
+
+.release-panel {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+}
+
+.release-row,
+.version-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.release-row span,
+.version-row span {
+  color: var(--text-secondary);
+}
+
+.release-row strong,
+.version-row strong {
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.release-sha {
+  flex-direction: column;
+}
+
+.release-sha strong {
+  text-align: left;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.82rem;
+}
+
+.official-download-btn {
+  width: min(100%, 420px);
+}
+
+.secondary-release-card h2,
+.chart-card h2 {
+  font-size: 1.2rem;
+}
+
+.secondary-release-card p {
+  color: var(--text-secondary);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.admin-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.admin-header p,
+.admin-status {
+  color: var(--text-secondary);
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  padding: 22px;
+}
+
+.metric-card span {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.metric-card strong {
+  display: block;
+  color: var(--primary);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.chart-card {
+  padding: 24px;
+}
+
+.chart-card h2 {
+  margin-bottom: 18px;
+}
+
+.version-table {
+  color: var(--text-secondary);
+}
+
+.admin-status {
+  margin-top: 18px;
+}
+
 /* Download Modal */
 .download-modal {
   display: none;
@@ -1662,6 +1890,8 @@ section { position: relative; z-index: 1; }
   .platform-card { flex-direction: row; align-items: center; }
   .platform-mockup { flex: 0 0 200px; }
   .developer-grid { grid-template-columns: 260px 1fr; gap: 36px; }
+  .admin-grid { grid-template-columns: repeat(2, 1fr); }
+  .chart-grid { grid-template-columns: 1fr; }
   .dev-photo-frame { width: 200px; height: 200px; }
   .dev-photo { width: 200px; height: 200px; }
   .platform-info { flex: 1; }
@@ -1700,6 +1930,10 @@ section { position: relative; z-index: 1; }
   .platform-mockup { width: 100%; }
 
   .download-cards { grid-template-columns: 1fr; }
+  .status-list { grid-template-columns: 1fr; }
+  .download-hero-card { padding: 28px 22px; }
+  .admin-header { flex-direction: column; }
+  .admin-grid { grid-template-columns: 1fr; }
 
   .about-grid { grid-template-columns: 1fr; }
   .about-logo { order: -1; }

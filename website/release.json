@@ -1,0 +1,47 @@
+{
+  "app": "Syariah App",
+  "version": "1.0.11",
+  "build": 12,
+  "channel": "stable",
+  "releasedAt": "2026-06-01T14:33:52Z",
+  "minimumSupportedBuild": 1,
+  "rollout": 100,
+  "notesUrl": "release-notes.md",
+  "channels": {
+    "stable": {
+      "version": "1.0.11",
+      "build": 12,
+      "manifest": "../releases/stable/release.json"
+    },
+    "beta": {
+      "version": "1.0.11",
+      "build": 12,
+      "manifest": "../releases/beta/release.json"
+    },
+    "dev": {
+      "version": "1.0.11",
+      "build": 12,
+      "manifest": "../releases/dev/release.json"
+    }
+  },
+  "artifacts": {
+    "windows": {
+      "file": "SyariahAppSetup.exe",
+      "path": "downloads/SyariahAppSetup.exe",
+      "url": "/downloads/SyariahAppSetup.exe",
+      "sha256": "6469ba5658c020e553b8b2be9353f8dba065c62b74529f9d4a7a7cec07b6b4d2",
+      "size": 257702767
+    },
+    "android": {
+      "status": "development",
+      "publicDownload": false,
+      "message": "Android Version sedang dalam tahap pengembangan dan pengujian."
+    }
+  },
+  "rollback": {
+    "enabled": true,
+    "targetVersion": "1.0.11",
+    "targetBuild": 12,
+    "reason": ""
+  }
+}

@@ -303,9 +303,14 @@
 /* ──────────────────────────────────────────────
    7. DOWNLOAD MODAL
    ────────────────────────────────────────────── */
-function handleDownload(e, platform) {
+async function handleDownload(e, platform) {
   e.preventDefault();
-  try { trackEvent('download', { platform }); } catch (e) {}
+  const link = e.currentTarget || document.getElementById('dl-windows-btn');
+  const href = link?.getAttribute('href') || '/downloads/SyariahAppSetup.exe';
+  const version = link?.dataset?.version || '1.0.11';
+
+  if (platform !== 'windows') return;
+  try { window.va?.('event', 'download_windows', { version }); } catch (e) {}
 
   const modal     = document.getElementById('downloadModal');
   const title     = document.getElementById('modalTitle');
@@ -314,21 +319,15 @@ function handleDownload(e, platform) {
   const icon      = document.getElementById('modalIcon');
 
   const labels = {
-    android: {
-      title: 'Mengunduh untuk Android',
-      desc:  'SyariahApp-v1.0.0.apk',
-      color: 'rgba(0,150,136,0.1)',
-      border:'rgba(0,150,136,0.3)',
-    },
     windows: {
       title: 'Mengunduh untuk Windows',
-      desc:  'SyariahApp-Setup-v1.0.0.exe',
+      desc:  'SyariahAppSetup.exe',
       color: 'rgba(0,120,212,0.1)',
       border:'rgba(0,120,212,0.3)',
     }
   };
 
-  const cfg = labels[platform];
+  const cfg = labels[platform] || labels.windows;
   title.textContent = cfg.title;
   desc.textContent  = cfg.desc;
   icon.style.background = cfg.color;
@@ -347,17 +346,20 @@ function handleDownload(e, platform) {
       clearInterval(interval);
       setTimeout(() => {
         title.textContent = '✓ Unduhan Siap!';
-        desc.textContent  = 'File berhasil diunduh. Silakan cek folder Downloads.';
+        desc.textContent  = 'Download dimulai. Silakan cek folder Downloads.';
         icon.innerHTML = `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="20 6 9 17 4 12"/>
         </svg>`;
         icon.style.color = '#22C55E';
         icon.style.background = 'rgba(34,197,94,0.1)';
         icon.style.borderColor = 'rgba(34,197,94,0.3)';
+        window.location.href = href;
       }, 300);
     }
     bar.style.width = progress + '%';
   }, 120);
+
+  await trackEvent('download', { platform, version, file: 'SyariahAppSetup.exe' });
 }
 
 function closeModal() {
@@ -654,14 +656,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
    /track (POST) increments counters
    /stats (GET) returns current counts
    ----------------------------- */
-function trackEvent(event, meta) {
+async function trackEvent(event, meta) {
   try {
     const payload = { event, meta: meta || {}, path: location.pathname, ts: Date.now() };
     if (navigator.sendBeacon) {
       const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-      navigator.sendBeacon('/track', blob);
+      navigator.sendBeacon('/api/track', blob);
     } else {
-      fetch('/track', {
+      await fetch('/api/track', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -681,26 +683,19 @@ function updateLiveStats(stats) {
   try {
     const v = document.getElementById('live-visits');
     const d = document.getElementById('live-downloads');
-    if (v && typeof stats.visits !== 'undefined') v.textContent = stats.visits;
-    if (d && typeof stats.downloads !== 'undefined') d.textContent = stats.downloads;
+    const visits = stats?.visits ?? stats?.visitors?.total ?? 0;
+    const downloads = stats?.downloads ?? stats?.downloadStats?.total ?? 0;
+    if (v) v.textContent = visits;
+    if (d) d.textContent = downloads;
   } catch (e) { /* ignore */ }
 }
 
 function subscribeLiveStats() {
   // initial fetch
-  fetch('/stats').then(r => r.json()).then(j => { if (j && j.ok) updateLiveStats(j.stats); }).catch(()=>{});
-
-  if (window.EventSource) {
-    try {
-      const es = new EventSource('/events');
-      es.onmessage = function(e) {
-        try { const data = JSON.parse(e.data); updateLiveStats(data); } catch (err) {}
-      };
-      es.onerror = function() {
-        // EventSource will retry automatically; no op
-      };
-    } catch (e) { /* ignore */ }
-  }
+  fetch('/api/stats').then(r => r.json()).then(j => { if (j && j.ok) updateLiveStats(j.stats); }).catch(()=>{});
+  setInterval(() => {
+    fetch('/api/stats').then(r => r.json()).then(j => { if (j && j.ok) updateLiveStats(j.stats); }).catch(()=>{});
+  }, 30000);
 }
 
 // start subscription

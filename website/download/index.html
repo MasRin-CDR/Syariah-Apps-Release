@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Syariah App Desktop</title>
+  <meta name="description" content="Download resmi Syariah App Desktop untuk Windows 10 dan Windows 11." />
+  <link rel="icon" type="image/png" href="../logo-syariah-app.png" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="download-page">
+  <canvas id="bgCanvas"></canvas>
+
+  <main class="download-shell">
+    <a href="/" class="nav-brand page-brand">
+      <img src="../logo-syariah-app.png" alt="Syariah App Logo" class="nav-logo" />
+      <span class="nav-title">Syariah <span class="accent">App</span></span>
+    </a>
+
+    <section class="download-hero-card">
+      <span class="section-tag">Download Resmi</span>
+      <h1 class="section-title">Syariah App Desktop</h1>
+      <p class="section-desc">Aplikasi Islam modern berbasis Al-Quran, Hadis, pencarian cerdas, dan mode offline.</p>
+
+      <div class="release-panel">
+        <div class="release-row">
+          <span>Versi</span>
+          <strong>1.0.11</strong>
+        </div>
+        <div class="release-row">
+          <span>Ukuran File</span>
+          <strong>245.76 MB</strong>
+        </div>
+        <div class="release-row">
+          <span>Tanggal Rilis</span>
+          <strong>1 Juni 2026</strong>
+        </div>
+        <div class="release-row">
+          <span>Platform</span>
+          <strong>Windows 10+ / Windows 11+</strong>
+        </div>
+        <div class="release-row">
+          <span>Status</span>
+          <strong>Stable Release</strong>
+        </div>
+        <div class="release-row release-sha">
+          <span>SHA-256</span>
+          <strong>6469ba5658c020e553b8b2be9353f8dba065c62b74529f9d4a7a7cec07b6b4d2</strong>
+        </div>
+      </div>
+
+      <a href="/downloads/SyariahAppSetup.exe" class="dl-btn windows-dl-btn official-download-btn" id="dl-windows-btn" data-platform="windows" data-version="1.0.11" onclick="handleDownload(event,'windows')">
+        <div class="dl-btn-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div class="dl-btn-text">
+          <span class="dl-sub">Unduh Versi Terbaru</span>
+          <span class="dl-main">SyariahAppSetup.exe</span>
+        </div>
+      </a>
+    </section>
+
+    <section class="download-hero-card secondary-release-card">
+      <h2>Android Version</h2>
+      <p>Sedang dalam tahap pengembangan dan pengujian. Versi Android akan dirilis setelah seluruh fitur berjalan stabil.</p>
+      <ul class="status-list">
+        <li class="done">Al-Quran</li>
+        <li class="done">Hadis</li>
+        <li class="done">Offline Mode</li>
+        <li class="done">Bookmark</li>
+        <li class="pending">Optimasi Android</li>
+        <li class="pending">Final Testing</li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="download-modal" id="downloadModal">
+    <div class="modal-content" id="modalContent">
+      <div class="modal-icon" id="modalIcon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </div>
+      <h3 id="modalTitle">Memulai Unduhan...</h3>
+      <p id="modalDesc">File Anda sedang dipersiapkan</p>
+      <div class="modal-progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <button class="modal-close" id="modalCloseBtn" onclick="closeModal()">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
