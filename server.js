@@ -6,6 +6,19 @@ const url = require('url');
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = __dirname;
 const STATS_FILE = path.join(__dirname, 'stats.json');
+// SSE clients for live updates
+let sseClients = [];
+
+function broadcastStats(stats) {
+  const payload = JSON.stringify(stats);
+  sseClients.forEach((res) => {
+    try {
+      res.write(`data: ${payload}\n\n`);
+    } catch (e) {
+      // ignore
+    }
+  });
+}
 
 function loadStats() {
   try {
@@ -78,6 +91,26 @@ const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url, true);
   const pathname = parsed.pathname;
 
+  // Server-Sent Events endpoint for live stats
+  if (req.method === 'GET' && pathname === '/events') {
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      Connection: 'keep-alive',
+    });
+    // send current stats immediately
+    const stats = loadStats();
+    res.write(`data: ${JSON.stringify(stats)}\n\n`);
+
+    // keep connection open
+    sseClients.push(res);
+
+    req.on('close', () => {
+      sseClients = sseClients.filter(r => r !== res);
+    });
+    return;
+  }
+
   if (req.method === 'POST' && pathname === '/track') {
     let body = '';
     req.on('data', chunk => (body += chunk));
@@ -89,6 +122,8 @@ const server = http.createServer((req, res) => {
         if (event === 'visit') stats.visits = (stats.visits || 0) + 1;
         if (event === 'download') stats.downloads = (stats.downloads || 0) + 1;
         saveStats(stats);
+        // broadcast to SSE clients
+        try { broadcastStats(stats); } catch (e) {}
         sendJSON(res, { ok: true, stats });
       } catch (e) {
         sendJSON(res, { ok: false, error: 'invalid_json' }, 400);

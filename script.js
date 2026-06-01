@@ -676,3 +676,32 @@ window.addEventListener('load', () => { try { trackEvent('visit'); } catch (e) {
 
 console.log('%c🕌 Syariah App', 'color:#009688;font-size:20px;font-weight:bold;');
 console.log('%cBismillahirrahmanirrahim — Semoga bermanfaat 🤲', 'color:#F59E0B;font-size:12px;');
+
+function updateLiveStats(stats) {
+  try {
+    const v = document.getElementById('live-visits');
+    const d = document.getElementById('live-downloads');
+    if (v && typeof stats.visits !== 'undefined') v.textContent = stats.visits;
+    if (d && typeof stats.downloads !== 'undefined') d.textContent = stats.downloads;
+  } catch (e) { /* ignore */ }
+}
+
+function subscribeLiveStats() {
+  // initial fetch
+  fetch('/stats').then(r => r.json()).then(j => { if (j && j.ok) updateLiveStats(j.stats); }).catch(()=>{});
+
+  if (window.EventSource) {
+    try {
+      const es = new EventSource('/events');
+      es.onmessage = function(e) {
+        try { const data = JSON.parse(e.data); updateLiveStats(data); } catch (err) {}
+      };
+      es.onerror = function() {
+        // EventSource will retry automatically; no op
+      };
+    } catch (e) { /* ignore */ }
+  }
+}
+
+// start subscription
+subscribeLiveStats();
