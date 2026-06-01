@@ -88,3 +88,21 @@ Proyek ini dilisensikan di bawah **MIT License** — lihat file [LICENSE](LICENS
 ⭐ Jika bermanfaat, berikan bintang pada repositori ini ⭐
 
 </div>
+
+---
+
+## 📊 Statistik (lokal)
+
+Untuk mengumpulkan data sederhana (kunjungan halaman dan klik unduh) secara lokal, sebuah server kecil disertakan:
+
+- Jalankan server:
+
+```powershell
+node server.js
+```
+
+- Buka situs di: `http://localhost:3000`
+- API statistik tersedia di: `http://localhost:3000/stats`
+
+Server menyimpan data di file `stats.json` di root proyek.
+

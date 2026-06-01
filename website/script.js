@@ -305,6 +305,7 @@
    ────────────────────────────────────────────── */
 function handleDownload(e, platform) {
   e.preventDefault();
+  try { trackEvent('download', { platform }); } catch (e) {}
 
   const modal     = document.getElementById('downloadModal');
   const title     = document.getElementById('modalTitle');
@@ -647,6 +648,31 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
   });
 })();
+
+/* -----------------------------
+   Simple local tracking helper
+   /track (POST) increments counters
+   /stats (GET) returns current counts
+   ----------------------------- */
+function trackEvent(event, meta) {
+  try {
+    const payload = { event, meta: meta || {}, path: location.pathname, ts: Date.now() };
+    if (navigator.sendBeacon) {
+      const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+      navigator.sendBeacon('/track', blob);
+    } else {
+      fetch('/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(() => {});
+    }
+  } catch (e) { /* ignore */ }
+}
+
+// send visit event on page load
+window.addEventListener('load', () => { try { trackEvent('visit'); } catch (e) {} });
 
 console.log('%c🕌 Syariah App', 'color:#009688;font-size:20px;font-weight:bold;');
 console.log('%cBismillahirrahmanirrahim — Semoga bermanfaat 🤲', 'color:#F59E0B;font-size:12px;');
