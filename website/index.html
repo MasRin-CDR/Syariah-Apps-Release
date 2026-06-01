@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syariah App — Aplikasi Islami Modern</title>
+  <meta name="description" content="Unduh Syariah App — Aplikasi Islami modern dengan Al-Quran lengkap, Hadis 9 Kitab Shahih, Pencarian Cerdas, dan Kalkulator Waris. Tersedia untuk Android dan Windows." />
+  <meta name="keywords" content="Syariah App, Al Quran, Hadis, Aplikasi Islam, Download, Android, Windows" />
+  <meta property="og:title" content="Syariah App — Aplikasi Islami Modern" />
+  <meta property="og:description" content="Aplikasi Islami modern dengan Al-Quran, Hadis, dan lebih banyak fitur." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated Background Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Floating Islamic Patterns -->
+  <div class="floating-patterns" aria-hidden="true">
+    <div class="pattern-orb orb-1"></div>
+    <div class="pattern-orb orb-2"></div>
+    <div class="pattern-orb orb-3"></div>
+    <div class="pattern-orb orb-4"></div>
+  </div>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand" id="nav-brand-link">
+        <img src="../Logo Syariah App.png" alt="Syariah App Logo" class="nav-logo" />
+        <span class="nav-title">Syariah <span class="accent">App</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features" class="nav-link" id="nav-features">Fitur</a></li>
+        <li><a href="#platforms" class="nav-link" id="nav-platforms">Platform</a></li>
+        <li><a href="#download" class="nav-link" id="nav-download">Unduh</a></li>
+        <li><a href="#developer" class="nav-link" id="nav-developer">Developer</a></li>
+        <li><a href="#about" class="nav-link" id="nav-about">Tentang</a></li>
+      </ul>
+      <a href="#download" class="nav-cta" id="nav-cta-btn">Unduh Sekarang</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#features" id="mob-features">Fitur</a></li>
+      <li><a href="#platforms" id="mob-platforms">Platform</a></li>
+      <li><a href="#download" id="mob-download">Unduh</a></li>
+      <li><a href="#developer" id="mob-developer">Developer</a></li>
+      <li><a href="#about" id="mob-about">Tentang</a></li>
+    </ul>
+  </div>
+
+  <!-- ====== HERO SECTION ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        Tersedia untuk Android &amp; Windows
+      </div>
+
+      <div class="hero-logo-wrap" id="hero-logo-wrap">
+        <div class="logo-glow-ring"></div>
+        <div class="logo-container">
+          <img src="../Logo Syariah App.png" alt="Syariah App" class="hero-logo" id="heroLogo" />
+        </div>
+      </div>
+
+      <h1 class="hero-title" id="heroTitle">
+        <span class="title-line" id="title-line-1">Syariah</span>
+        <span class="title-line gradient-text" id="title-line-2">App</span>
+      </h1>
+
+      <p class="hero-arabic" id="hero-arabic">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+
+      <p class="hero-subtitle" id="hero-subtitle">
+        Aplikasi Islami Modern — Al‑Quran, Hadis, Pencarian Cerdas &amp; Kalkulator Waris
+        <br />dalam satu genggaman.
+      </p>
+
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat-item" id="stat-1">
+          <span class="stat-number" data-target="6236">0</span>
+          <span class="stat-label">Ayat Al‑Quran</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item" id="stat-2">
+          <span class="stat-number" data-target="62000">0</span>
+          <span class="stat-label">Hadis Shahih</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item" id="stat-3">
+          <span class="stat-number" data-target="9">0</span>
+          <span class="stat-label">Kitab Hadis</span>
+        </div>
+      </div>
+
+      <div class="hero-buttons" id="hero-buttons">
+        <a href="#download" class="btn-primary" id="btn-hero-download">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Unduh Sekarang
+        </a>
+        <a href="#features" class="btn-secondary" id="btn-hero-learn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Lihat Fitur
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ====== FEATURES SECTION ====== -->
+  <section class="features" id="features">
+    <div class="section-container">
+      <div class="section-header" id="features-header">
+        <span class="section-tag">Fitur Unggulan</span>
+        <h2 class="section-title">Semua yang Anda Butuhkan<br /><span class="gradient-text">dalam Satu Aplikasi</span></h2>
+        <p class="section-desc">Dirancang dengan <em>reading-first experience</em> yang nyaman, elegan, dan modern.</p>
+      </div>
+
+      <div class="features-grid" id="features-grid">
+
+        <div class="feature-card featured" id="feat-quran">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">📗</div>
+          </div>
+          <div class="feature-badge">Utama</div>
+          <h3>Al‑Quran Lengkap</h3>
+          <p>Baca 6.236 ayat dengan teks Arab mushaf digital, terjemahan Kemenag, tafsir, dan dukungan tajwid warna.</p>
+          <ul class="feature-list">
+            <li>Mushaf Mode per halaman</li>
+            <li>Mode per ayat dengan transliterasi</li>
+            <li>Night mode &amp; pengaturan font</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" id="feat-hadis">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">📙</div>
+          </div>
+          <h3>Hadis 9 Kitab</h3>
+          <p>Akses ribuan hadis shahih dari 9 kitab utama dengan terjemahan Indonesia lengkap dan syarah.</p>
+          <ul class="feature-list">
+            <li>Shahih Bukhari &amp; Muslim</li>
+            <li>Sunan Abu Dawud</li>
+            <li>Filter kitab &amp; bab</li>
+            <li>Bookmark &amp; share</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" id="feat-search">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">🔍</div>
+          </div>
+          <h3>Pencarian Cerdas</h3>
+          <p>Mesin pencari semantik canggih menggunakan FTS5 + BM25 + FAISS untuk hasil yang akurat dan relevan.</p>
+          <ul class="feature-list">
+            <li>Cari dalam bahasa Arab</li>
+            <li>Cari dalam bahasa Indonesia</li>
+            <li>Pencarian lintas kitab</li>
+            <li>Filter &amp; sorting lanjutan</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" id="feat-waris">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">⚖️</div>
+          </div>
+          <h3>Kalkulator Waris</h3>
+          <p>Hitung pembagian warisan sesuai hukum faraid Islam dengan akurat dan transparan.</p>
+          <ul class="feature-list">
+            <li>Sesuai hukum faraid</li>
+            <li>Input ahli waris fleksibel</li>
+            <li>Hasil terperinci</li>
+            <li>Panduan hukum waris</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" id="feat-bookmark">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">🔖</div>
+          </div>
+          <h3>Bookmark &amp; Riwayat</h3>
+          <p>Simpan ayat dan hadis favorit, lanjutkan bacaan dari terakhir kali, dan kelola koleksi Anda.</p>
+          <ul class="feature-list">
+            <li>Bookmark ayat &amp; hadis</li>
+            <li>Last read tracking</li>
+            <li>Catatan pribadi</li>
+            <li>Share ke sosial media</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" id="feat-ui">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">🌙</div>
+          </div>
+          <h3>UI Elegan Modern</h3>
+          <p>Tampilan Islamic Futuristic dengan dark mode, glassmorphism, dan animasi halus yang memanjakan mata.</p>
+          <ul class="feature-list">
+            <li>Dark &amp; light mode</li>
+            <li>Font Arab berkualitas tinggi</li>
+            <li>Animasi smooth</li>
+            <li>Responsive semua perangkat</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PLATFORMS SECTION ====== -->
+  <section class="platforms" id="platforms">
+    <div class="section-container">
+      <div class="section-header" id="platforms-header">
+        <span class="section-tag">Multi Platform</span>
+        <h2 class="section-title">Tersedia di <span class="gradient-text">Platform Favorit Anda</span></h2>
+        <p class="section-desc">Pengalaman yang konsisten dan optimal di setiap perangkat.</p>
+      </div>
+
+      <div class="platforms-grid" id="platforms-grid">
+        <div class="platform-card" id="plat-android">
+          <div class="platform-mockup android-mockup">
+            <div class="mockup-frame android-frame">
+              <div class="mockup-screen">
+                <div class="mockup-notch"></div>
+                <div class="mockup-content">
+                  <div class="mock-header"></div>
+                  <div class="mock-arabic-text">﴿ بِسْمِ اللهِ ﴾</div>
+                  <div class="mock-lines">
+                    <div class="mock-line"></div>
+                    <div class="mock-line short"></div>
+                    <div class="mock-line"></div>
+                    <div class="mock-line medium"></div>
+                  </div>
+                  <div class="mock-player">
+                    <div class="mock-player-dot"></div>
+                    <div class="mock-player-bar"></div>
+                    <div class="mock-player-btn"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="platform-info">
+            <div class="platform-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36">
+                <path d="M17.523 15.341l1.505-2.607a.5.5 0 00-.866-.5l-1.524 2.638A9.95 9.95 0 0112 14a9.95 9.95 0 01-4.638 1.872L5.838 13.234a.5.5 0 00-.866.5l1.505 2.607A10.017 10.017 0 002 24h20a10.017 10.017 0 00-4.477-8.659zM8.5 20a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm7 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM8.053 6.235l-1.405-2.43a.5.5 0 10-.866.5l1.424 2.466A9.972 9.972 0 0112 6c1.585 0 3.08.37 4.394 1.022l1.424-2.466a.5.5 0 00-.866-.5L15.547 6.44A9.99 9.99 0 0012 6a9.99 9.99 0 00-3.947.235z"/>
+              </svg>
+            </div>
+            <h3>Android</h3>
+            <p>Optimal untuk smartphone Android. Antarmuka mobile-first yang responsif dan ringan.</p>
+            <div class="platform-specs">
+              <span>Android 7.0+</span>
+              <span>~45 MB</span>
+              <span>Gratis</span>
+            </div>
+            <a href="#download" class="platform-btn android-btn" id="plat-android-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Unduh untuk Android
+            </a>
+          </div>
+        </div>
+
+        <div class="platform-card" id="plat-windows">
+          <div class="platform-mockup windows-mockup">
+            <div class="mockup-frame windows-frame">
+              <div class="mockup-titlebar">
+                <div class="titlebar-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="titlebar-title">Syariah App</div>
+              </div>
+              <div class="mockup-screen desktop-screen">
+                <div class="mock-sidebar">
+                  <div class="sidebar-item active"></div>
+                  <div class="sidebar-item"></div>
+                  <div class="sidebar-item"></div>
+                  <div class="sidebar-item"></div>
+                </div>
+                <div class="mock-main">
+                  <div class="mock-header desktop"></div>
+                  <div class="mock-arabic-text">﴿ الْحَمْدُ لِلَّهِ ﴾</div>
+                  <div class="mock-lines">
+                    <div class="mock-line"></div>
+                    <div class="mock-line short"></div>
+                    <div class="mock-line medium"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="platform-info">
+            <div class="platform-icon windows-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+              </svg>
+            </div>
+            <h3>Windows</h3>
+            <p>Versi desktop lengkap dengan sidebar filter, multi-panel, dan pengalaman baca yang optimal di layar besar.</p>
+            <div class="platform-specs">
+              <span>Windows 10+</span>
+              <span>~120 MB</span>
+              <span>Gratis</span>
+            </div>
+            <a href="#download" class="platform-btn windows-btn" id="plat-windows-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Unduh untuk Windows
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== DOWNLOAD SECTION ====== -->
+  <section class="download" id="download">
+    <div class="download-bg-pattern" aria-hidden="true"></div>
+    <div class="section-container">
+      <div class="section-header" id="download-header">
+        <span class="section-tag">Unduh Gratis</span>
+        <h2 class="section-title">Mulai Perjalanan Islami<br /><span class="gradient-text">Anda Hari Ini</span></h2>
+        <p class="section-desc">Gratis selamanya. Tanpa iklan mengganggu. Tanpa langganan berbayar.</p>
+      </div>
+
+      <div class="download-cards" id="download-cards">
+
+        <!-- Android Card -->
+        <div class="download-card" id="dl-android">
+          <div class="dl-card-header">
+            <div class="dl-platform-icon android-icon-dl">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+                <path d="M17.523 15.341l1.505-2.607a.5.5 0 00-.866-.5l-1.524 2.638A9.95 9.95 0 0112 14a9.95 9.95 0 01-4.638 1.872L5.838 13.234a.5.5 0 00-.866.5l1.505 2.607A10.017 10.017 0 002 24h20a10.017 10.017 0 00-4.477-8.659zM8.5 20a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm7 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM8.053 6.235l-1.405-2.43a.5.5 0 10-.866.5l1.424 2.466A9.972 9.972 0 0112 6c1.585 0 3.08.37 4.394 1.022l1.424-2.466a.5.5 0 00-.866-.5L15.547 6.44A9.99 9.99 0 0012 6a9.99 9.99 0 00-3.947.235z"/>
+              </svg>
+            </div>
+            <div class="dl-platform-text">
+              <h3>Android</h3>
+              <p>File APK — Install langsung</p>
+            </div>
+          </div>
+          <div class="dl-info">
+            <div class="dl-meta">
+              <div class="dl-meta-item">
+                <span class="meta-label">Versi</span>
+                <span class="meta-value">1.0.0</span>
+              </div>
+              <div class="dl-meta-item">
+                <span class="meta-label">Ukuran</span>
+                <span class="meta-value">~45 MB</span>
+              </div>
+              <div class="dl-meta-item">
+                <span class="meta-label">Min OS</span>
+                <span class="meta-value">Android 7.0</span>
+              </div>
+              <div class="dl-meta-item">
+                <span class="meta-label">Harga</span>
+                <span class="meta-value free">Gratis</span>
+              </div>
+            </div>
+            <div class="dl-note">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Aktifkan <strong>Install dari sumber tidak dikenal</strong> di pengaturan Android Anda sebelum install.
+            </div>
+          </div>
+          <a href="#" class="dl-btn android-dl-btn" id="dl-android-btn" onclick="handleDownload(event,'android')">
+            <div class="dl-btn-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div class="dl-btn-text">
+              <span class="dl-sub">Unduh untuk</span>
+              <span class="dl-main">Android (.APK)</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Windows Card -->
+        <div class="download-card featured-dl" id="dl-windows">
+          <div class="dl-popular-badge">Populer</div>
+          <div class="dl-card-header">
+            <div class="dl-platform-icon windows-icon-dl">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+              </svg>
+            </div>
+            <div class="dl-platform-text">
+              <h3>Windows</h3>
+              <p>Installer EXE — Langsung jalankan</p>
+            </div>
+          </div>
+          <div class="dl-info">
+            <div class="dl-meta">
+              <div class="dl-meta-item">
+                <span class="meta-label">Versi</span>
+                <span class="meta-value">1.0.0</span>
+              </div>
+              <div class="dl-meta-item">
+                <span class="meta-label">Ukuran</span>
+                <span class="meta-value">~120 MB</span>
+              </div>
+              <div class="dl-meta-item">
+                <span class="meta-label">Min OS</span>
+                <span class="meta-value">Windows 10</span>
+              </div>
+              <div class="dl-meta-item">
+                <span class="meta-label">Harga</span>
+                <span class="meta-value free">Gratis</span>
+              </div>
+            </div>
+            <div class="dl-note">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Jika SmartScreen muncul, klik <strong>More info → Run anyway</strong> untuk melanjutkan instalasi.
+            </div>
+          </div>
+          <a href="#" class="dl-btn windows-dl-btn" id="dl-windows-btn" onclick="handleDownload(event,'windows')">
+            <div class="dl-btn-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div class="dl-btn-text">
+              <span class="dl-sub">Unduh untuk</span>
+              <span class="dl-main">Windows (.EXE)</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Download Progress Modal -->
+      <div class="download-modal" id="downloadModal">
+        <div class="modal-content" id="modalContent">
+          <div class="modal-icon" id="modalIcon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <h3 id="modalTitle">Memulai Unduhan...</h3>
+          <p id="modalDesc">File Anda sedang dipersiapkan</p>
+          <div class="modal-progress">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <button class="modal-close" id="modalCloseBtn" onclick="closeModal()">Tutup</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== ABOUT SECTION ====== -->
+  <section class="about" id="about">
+    <div class="section-container">
+      <div class="about-grid" id="about-grid">
+        <div class="about-text" id="about-text">
+          <span class="section-tag">Tentang Kami</span>
+          <h2 class="section-title">Dibuat dengan <span class="gradient-text">Ikhlas &amp; Dedikasi</span></h2>
+          <p>Syariah App lahir dari keinginan untuk menghadirkan referensi Islam yang lengkap, akurat, dan mudah digunakan oleh seluruh kalangan Muslim Indonesia.</p>
+          <p>Dibangun dengan arsitektur <em>clean</em> dan <em>scalable</em>, menggunakan teknologi terkini untuk memberikan pengalaman terbaik dalam membaca Al-Quran dan mempelajari Hadis.</p>
+          <div class="about-quote">
+            <p class="quote-arabic"> عَنْ أَبِي هُرَيْرَةَ أَنَّ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ إِذَا مَاتَ الْإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ إِلَّا مِنْ ثَلَاثَةٍ إِلَّا مِنْ صَدَقَةٍ جَارِيَةٍ أَوْ عِلْمٍ يُنْتَفَعُ بِهِ أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ </p>
+            <p class="quote-latin">Dari [Abu Hurairah], bahwa Rasulullah shallallahu 'alaihi wa sallam bersabda: "Apabila salah seorang manusia meninggal dunia, maka terputuslah segala amalannya kecuali tiga perkara: sedekah jariyah, ilmu yang bermanfa'at baginya dan anak shalih yang selalu mendoakannya." (HR. Muslim No. 3084)</p>
+          </div>
+        </div>
+        <div class="about-logo" id="about-logo">
+          <div class="about-logo-glow"></div>
+          <img src="../Logo Syariah App.png" alt="Syariah App" />
+          <div class="about-tagline">
+            <p>بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+            <p>Semoga menjadi amal jariyah yang bermanfaat</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== DEVELOPER SECTION ====== -->
+  <section class="developer" id="developer">
+    <div class="section-container">
+      <div class="section-header" id="developer-header">
+        <span class="section-tag">Tentang Developer</span>
+        <h2 class="section-title">Dibuat oleh <span class="gradient-text">Mas Rin</span></h2>
+      </div>
+
+      <div class="developer-grid" id="developer-grid">
+
+        <!-- Photo & Name -->
+        <div class="dev-photo-col" id="dev-photo-col">
+          <div class="dev-photo-frame">
+            <div class="dev-photo-glow"></div>
+            <div class="dev-photo-ring"></div>
+            <img src="developer.jpg" alt="Muhammad Rafliansyah Cahyo Riyadi" class="dev-photo" id="devPhoto" />
+          </div>
+          <div class="dev-name-block">
+            <h3 class="dev-name">Muhammad Rafliansyah<br />Cahyo Riyadi</h3>
+            <span class="dev-alias">— Mas Rin —</span>
+            <div class="dev-socials">
+              <a href="https://github.com/MasRin-CDR" class="dev-social-btn" id="social-github" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a href="https://www.instagram.com/rafliansyah_cahyo/" class="dev-social-btn" id="social-instagram" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/muhammad-rafliansyah-666995193/" class="dev-social-btn" id="social-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@mas.rin02" class="dev-social-btn" id="social-tiktok" target="_blank" rel="noopener" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              </a>
+              <a href="https://www.youtube.com/@muhammadrafliansyahcahyori1726" class="dev-social-btn" id="social-youtube" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio & Info -->
+        <div class="dev-info-col" id="dev-info-col">
+          <div class="dev-bio">
+            <p>Mahasiswa Fakultas Syariah dan Hukum UIN Sunan Ampel Surabaya dengan fokus pada pengembangan hukum berbasis mediasi dan pendekatan psikologi, serta pengalaman di bidang desain grafis, manajemen media sosial, dan pengembangan aplikasi.</p>
+            <p>Memiliki rekam jejak dalam mengelola media digital, membangun aplikasi berbasis kebutuhan masyarakat, serta meraih prestasi tingkat nasional di bidang kreatif.</p>
+          </div>
+
+          <div class="dev-achievements" id="dev-achievements">
+            <div class="ach-item" id="ach-1">
+              <div class="ach-icon">🏆</div>
+              <div class="ach-text">
+                <strong>Juara 2 Nasional</strong>
+                <p>Lomba Video Edukasi Wisata</p>
+              </div>
+            </div>
+            <div class="ach-item" id="ach-2">
+              <div class="ach-icon">📱</div>
+              <div class="ach-text">
+                <strong>App Developer</strong>
+                <p>Syariah App</p>
+              </div>
+            </div>
+            <div class="ach-item" id="ach-3">
+              <div class="ach-icon">👥</div>
+              <div class="ach-text">
+                <strong>Pengelola Medsos</strong>
+                <p>50+ Organisasi &amp; Klien</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="dev-info-cards" id="dev-info-cards">
+            <div class="dev-info-card" id="dcard-1">
+              <span class="dcard-icon">🏛️</span>
+              <div>
+                <strong>Institusi</strong>
+                <p>UIN Sunan Ampel Surabaya</p>
+              </div>
+            </div>
+            <div class="dev-info-card" id="dcard-2">
+              <span class="dcard-icon">🎓</span>
+              <div>
+                <strong>Program Studi</strong>
+                <p>Hukum Keluarga Islam</p>
+              </div>
+            </div>
+            <div class="dev-info-card" id="dcard-3">
+              <span class="dcard-icon">🎨</span>
+              <div>
+                <strong>Spesialisasi</strong>
+                <p>Teknologi &amp; Informasi</p>
+              </div>
+            </div>
+            <div class="dev-info-card" id="dcard-4">
+              <span class="dcard-icon">📍</span>
+              <div>
+                <strong>Lokasi</strong>
+                <p>Surabaya, Jawa Timur</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Contact Banner -->
+      <div class="contact-banner" id="contact-banner">
+        <div class="contact-banner-text">
+          <h3>Ada Saran atau Perubahan? 💬</h3>
+          <p>Jangan ragu untuk menghubungi Mas Rin melalui media sosial di atas. Setiap masukan sangat diapresiasi!</p>
+        </div>
+        <div class="contact-banner-links">
+          <a href="https://www.instagram.com/rafliansyah_cahyo/" class="contact-link instagram-link" id="contact-ig" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+          <a href="https://github.com/MasRin-CDR" class="contact-link github-link" id="contact-gh" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="../Logo Syariah App.png" alt="Syariah App" class="footer-logo" />
+        <div>
+          <span class="footer-title">Syariah App</span>
+          <p class="footer-desc">Aplikasi Islami Modern</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#features" id="footer-features">Fitur</a>
+        <a href="#platforms" id="footer-platforms">Platform</a>
+        <a href="#download" id="footer-download">Unduh</a>
+        <a href="#about" id="footer-about">Tentang</a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Syariah App. Lisensi MIT.</p>
+        <p>Dibuat dengan ❤️ untuk umat Islam Indonesia.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
