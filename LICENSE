@@ -1,0 +1,159 @@
+APPLICATION USE LICENSE
+Syariah App
+© 2026 Muhammad Rafliansyah Cahyo Riyadi (Mas Rin)
+All Rights Reserved.
+________________________________________
+TERMS OF REFERENCE & INSTALLATION AGREEMENT
+By installing, accessing, using, modifying, distributing, or interacting with the Syariah App software, system, database, source code, API, interface, content, or related services, the user acknowledges that they have read, understood, and agreed to all terms and conditions stated in this agreement.
+This agreement applies to all platforms including:
+•	Android
+•	Windows
+•	macOS
+•	Linux
+•	Web Platform
+•	Future derivative platforms and packaged distributions
+________________________________________
+1. Intellectual Property Rights
+All components contained within the Syariah App are protected by applicable Intellectual Property Rights (IPR), including but not limited to:
+•	Source code
+•	UI/UX design
+•	Branding
+•	Database structures
+•	Search engine architecture
+•	Documentation
+•	API systems
+•	Citation systems
+•	Quran and Hadith processing systems
+•	Visual assets
+•	Application identity and naming
+Ownership remains exclusively under:
+Muhammad Rafliansyah Cahyo Riyadi (Mas Rin)
+unless otherwise stated for third-party references and datasets.
+________________________________________
+2. Permitted Use
+Users are permitted to:
+•	Install and use the application for personal, educational, research, and non-commercial religious purposes
+•	Use generated citations and references with proper attribution
+•	Access public APIs and features provided officially by the developer
+•	Share non-modified public materials while maintaining proper credits
+________________________________________
+3. Restrictions
+Users are NOT permitted to:
+3.1 Unauthorized Redistribution
+Copy, mirror, republish, re-upload, or redistribute the application, source code, assets, or database without explicit written permission.
+3.2 Commercial Exploitation
+Sell, sublicense, rent, monetize, commercialize, or exploit the application and/or its contents for financial gain without official authorization.
+3.3 Source Code Manipulation
+Modify, reverse engineer, decompile, bypass, tamper with, inject malicious code into, or manipulate the application system without permission.
+3.4 Security Abuse
+Attempt to attack, probe, exploit, bypass, disrupt, overload, scan, enumerate, scrape, brute-force, intercept, or compromise the system infrastructure, including but not limited to:
+•	SQL Injection
+•	XSS
+•	CSRF
+•	MITM
+•	Reverse shell attempts
+•	Unauthorized crawling
+•	Packet manipulation
+•	Credential stuffing
+•	Brute-force login attempts
+•	API abuse
+•	DNS enumeration
+•	Port scanning
+•	Unauthorized automation
+•	Unauthorized vulnerability exploitation
+Any malicious activity may result in:
+•	Permanent access revocation
+•	IP/device banning
+•	Legal action where applicable
+•	Reporting to platform or hosting providers
+Because apparently some people see “educational app” and think “free penetration testing playground.” Extraordinary species.
+________________________________________
+4. Authentication & Security
+Syariah App may implement:
+•	OTP Email Verification
+•	Google Authentication
+•	Human Verification / Anti-bot systems
+•	Session validation
+•	Rate limiting
+•	Device validation
+•	Activity logging
+•	Abuse detection systems
+Unauthorized attempts to bypass authentication or security systems are strictly prohibited.
+________________________________________
+5. Citation & Academic Usage
+The application includes an integrated citation generation system supporting multiple international citation standards including:
+•	APA 7th Edition
+•	MLA 9th Edition
+•	Chicago 18th Edition
+•	IEEE
+•	ACS
+•	AMA
+•	APSA
+•	ASA
+•	Turabian
+•	Vancouver / NLM
+•	Nature
+•	Elsevier
+•	MHRA
+•	Cite Them Right
+•	and other supported academic styles
+Generated citations must still be reviewed by the user before academic publication.
+The developer is not responsible for institutional citation policy differences or academic penalties resulting from misuse or improper formatting.
+Humans invented 14 citation standards to reference the same sentence in 14 different ways. Civilization remains unstable.
+________________________________________
+6. Third-Party Sources & Content
+Some data, translations, tafsir, references, or datasets may originate from legitimate third-party Islamic and educational sources.
+Copyright and ownership of those materials remain with their respective owners.
+Syariah App does not claim ownership over third-party religious references unless explicitly stated.
+________________________________________
+7. Privacy & User Data
+Syariah App may temporarily process limited technical data required for:
+•	Authentication
+•	Session management
+•	Bookmark synchronization
+•	Search history
+•	Citation generation
+•	Security monitoring
+•	Abuse prevention
+The application does not intentionally sell user personal data to third parties.
+________________________________________
+8. Disclaimer
+Syariah App is provided “as is” without warranties of uninterrupted availability or absolute accuracy.
+While efforts are made to maintain correctness of Quranic, Hadith, and inheritance calculation content, users are encouraged to verify important religious matters with qualified scholars and trusted references.
+Technology helps. Human responsibility still exists. Tragic, really.
+________________________________________
+9. Termination of Access
+The developer reserves the right to:
+•	Restrict access
+•	Suspend accounts
+•	Revoke licenses
+•	Block devices or IPs
+•	Remove abusive users
+without prior notice for violations of this agreement.
+________________________________________
+10. Updates & Modifications
+The developer may modify:
+•	Features
+•	APIs
+•	Security systems
+•	Licensing terms
+•	Citation systems
+•	Application architecture
+at any time without prior obligation to maintain backward compatibility.
+________________________________________
+11. Contact & Official Support
+Official support and requests may be submitted through:
+Email:
+zenith.a.k.a.ian@gmail.com
+________________________________________
+12. Official Attribution
+Syariah App
+Developed by:
+Muhammad Rafliansyah Cahyo Riyadi (Mas Rin)
+© 2026 All Rights Reserved.
+________________________________________
+ACCEPTANCE
+By installing or using this application, the user confirms acceptance of all terms, restrictions, permissions, and conditions stated above.
+If the user does not agree with these terms, they must discontinue installation and usage immediately.
+________________________________________
+بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
