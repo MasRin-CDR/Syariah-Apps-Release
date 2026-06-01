@@ -1,0 +1,34 @@
+name: Deploy to Vercel
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: ${{ secrets.VERCEL_TOKEN != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies (optional)
+        run: |
+          if [ -f package-lock.json ]; then npm ci; elif [ -f package.json ]; then npm install || true; else echo "No Node deps"; fi
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel --prod --token "$VERCEL_TOKEN" --confirm
+
+  missing_token:
+    if: ${{ secrets.VERCEL_TOKEN == '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Missing VERCEL_TOKEN notice
+        run: |
+          echo "VERCEL_TOKEN secret is not set for this repository."
+          echo "Create a Personal Token in Vercel (https://vercel.com/account/tokens) and add it to GitHub repo secrets as VERCEL_TOKEN."
+          echo "Then re-run this workflow or push to `main` to trigger deploy."
